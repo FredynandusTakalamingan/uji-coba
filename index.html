@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Inovasi - Persamaan Kontinuitas</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/icon_128.png" type="image/x-icon">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Loading screen style */
+        body { margin: 0; font-family: Arial, sans-serif; }
+        #loading {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            z-index: 1000;
+        }
+        #main { display: none; padding: 20px; }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading">
+        <img src="images/icon_128.png" alt="Loading..." width="100">
+        <p>Loading... Please wait.</p>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main">
+        <header>
+            <h1>Persamaan Kontinuitas</h1>
+            <p>Pengalaman belajar fisika yang visual, interaktif, dan berbasis eksplorasi digital.</p>
+        </header>
+
+        <main>
+            <p>Konten animasi dan simulasi akan muncul di sini.</p>
+            <div id="animation-container"></div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Inovasi Pembelajaran</p>
+        </footer>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.dotdotdot.js"></script>
+    <script src="js/touchscroll.js"></script>
+    <script src="js/rgbjs.js"></script>
+    <script src="js/sacAnim.js"></script>
+    <script src="js/sacjs.js"></script>
+
+    <!-- Script inisialisasi -->
+    <script>
+        $(document).ready(function() {
+            // Sembunyikan loading dan tampilkan main content
+            $('#loading').fadeOut(500, function() {
+                $('#main').fadeIn(500);
+            });
+
+            // Inisialisasi animasi jika fungsi ada
+            if (typeof sacAnim !== 'undefined' && typeof sacAnim.init === 'function') {
+                sacAnim.init('#animation-container'); // target elemen untuk animasi
+            }
+        });
+    </script>
+</body>
+</html>
